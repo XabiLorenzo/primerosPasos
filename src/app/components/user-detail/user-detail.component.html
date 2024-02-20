@@ -1,0 +1,50 @@
+
+<div class="container mt-5">
+  <div class="card border-primary mb-3">
+    <div class="card-header bg-primary text-white">User Details</div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          ID:
+          <span class="badge bg-primary rounded-pill">{{ user?.id }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Name:
+        <span>{{ user?.firstName }} {{ user?.lastName }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Email:
+          <span>{{ user?.email }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Phone:
+          <span>{{ user?.phone }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Username:
+          <span>{{ user?.username }}</span>
+        </li>
+        <li *ngIf="user?.birthDate" class="list-group-item d-flex justify-content-between align-items-center">
+          Birth Date:
+          <span>{{ user?.birthDate }}</span>
+        </li>
+        <li *ngIf="user?.image" class="list-group-item d-flex justify-content-between align-items-center">
+          Image:
+          <img [src]="user?.image" alt="User Image" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px;">
+        </li>
+        <li *ngIf="user?.address" class="list-group-item d-flex justify-content-between align-items-center">
+          Address:
+          <span>
+            {{ user?.address?.address }}, {{ user?.address?.city }}
+            <br>
+            {{ user?.address?.postalCode }}, {{ user?.address?.state }}
+          </span>
+        </li>
+        <li *ngIf="user?.company" class="list-group-item d-flex justify-content-between align-items-center">
+          Company:
+          <span>{{ user?.company?.name }}</span>
+        </li>
+        </ul>
+    </div>
+  </div>
+</div>

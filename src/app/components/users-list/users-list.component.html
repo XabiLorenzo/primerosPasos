@@ -1,0 +1,27 @@
+<p>users-list works!</p>
+<button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Buscar usuario..." [(ngModel)]="searchValue">
+</div>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age ({{ userService.users.length }})</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of userService.users | filter:searchValue; track user.id) {
+                <tr class="table-primary">
+                    <td scope="row">{{ user.id }}</td>
+                    <td><a class="link-underline-success" [routerLink]="['/user', user.id]">{{ user.firstName }}</a></td>
+                    <td>{{ user.age }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
